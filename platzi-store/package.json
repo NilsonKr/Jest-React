@@ -7,7 +7,9 @@
     "build": "webpack --mode production",
     "start": "webpack-dev-server --open --mode development",
     "format": "prettier --write '{*.js,src/**/*.{js,jsx}}'",
-    "lint": "eslint src/"
+    "lint": "eslint src/",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -64,6 +66,10 @@
   },
   "homepage": "https://github.com/gndx/platzi-store/#readme",
   "jest": {
+    "testEnvironment": "jsdom",
+    "moduleNameMapper": {
+      "\\.(styl|css)$": "<rootDir>/__test__/__mocks__/stylesStub.js"
+    },
     "setupFilesAfterEnv": [
       "<rootDir>/__test__/setupFiles.js"
     ]
