@@ -23,4 +23,14 @@ describe('Basic Jest Functionalities', () => {
 	test('Promise Fetch', () => {
 		return expect(fetchApi()).resolves.toHaveProperty('results');
 	});
+
+	test('Fetching data with Async/Await ', async () => {
+		await expect(fetchApi()).resolves.toHaveProperty('info');
+	});
 });
+
+beforeEach(() => console.log('Before Each Test'));
+beforeAll(() => console.log('Before All Tests'));
+
+afterEach(() => console.log('After Each Test'));
+afterAll(() => console.log('After All Tests'));
