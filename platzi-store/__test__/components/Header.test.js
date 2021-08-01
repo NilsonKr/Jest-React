@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { create } from 'react-test-renderer';
 import ProviderStub from '../__mocks__/ProviderStub';
 import Header from '../../src/components/Header';
 import { expect } from '@jest/globals';
@@ -21,5 +22,15 @@ describe('<Header />', () => {
 
   test('Anchor Elements', () => {
     expect(wrapper.find('a').length).toBeGreaterThanOrEqual(2);
+  });
+
+  test('Header Snapshot', () => {
+    const snapHeader = create(
+      <ProviderStub>
+        <Header />
+      </ProviderStub>
+    );
+
+    expect(snapHeader.toJSON()).toMatchSnapshot();
   });
 });
